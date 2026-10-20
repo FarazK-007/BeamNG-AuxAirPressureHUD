@@ -1,10 +1,10 @@
 # Auxiliary Air Pressure HUD for BeamNG.drive 🚚💨
 
 [![BeamNG.drive](https://img.shields.io/badge/BeamNG.drive-v0.33%20%7C%20v0.34%2B-orange.svg)](https://beamng.com)
-[![Mod Version](https://img.shields.io/badge/Version-1.2.0-blue.svg)](https://github.com)
+[![Mod Version](https://img.shields.io/badge/Version-1.2.0-blue.svg)](https://github.com/FarazK-007/BeamNG-AuxAirPressureHUD/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey.svg)](https://beamng.com)
-[![Status](https://img.shields.io/badge/Status-Stable%20%26%20Active-brightgreen.svg)](https://github.com)
+[![Status](https://img.shields.io/badge/Status-Stable%20%26%20Active-brightgreen.svg)](https://github.com/FarazK-007/BeamNG-AuxAirPressureHUD)
 
 An OEM-styled, interactive digital-analog circular instrument gauge HUD for **BeamNG.drive** that monitors real-time **Auxiliary** and **Primary** air tank pressures, compressor charging activity, and low-air safety warnings in commercial trucks, buses, trailers, and pneumatic vehicles.
 
@@ -85,7 +85,7 @@ This mod automatically binds to any vehicle featuring BeamNG's pneumatic powertr
 
 ### Method 1: Standard Mod Installation (Recommended for Players)
 
-1. Download **`AuxAirPressureHUD.zip`** from the [Releases](https://github.com) section (or from this repository).
+1. Download **`AuxAirPressureHUD.zip`** from the [Releases](https://github.com/FarazK-007/BeamNG-AuxAirPressureHUD/releases) section (or from this repository).
 2. Move `AuxAirPressureHUD.zip` directly into your BeamNG.drive user mods folder:
    - **Windows Default**:
      ```
