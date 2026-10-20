@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 256px;
+    height: 256px;
+    background: transparent !important;
+    overflow: hidden;
+  }
+  svg {
+    width: 256px;
+    height: 256px;
+    display: block;
+  }
+  .aux-boost-val {
+    font-family: 'Segoe UI Bold', 'Segoe UI', 'Overpass', sans-serif;
+    text-anchor: middle;
+    fill: #ffffff !important;
+    stroke: none;
+    font-size: 122px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.75));
+  }
+  .aux-boost-unit {
+    font-family: 'Segoe UI', 'Overpass', sans-serif;
+    text-anchor: middle;
+    fill: rgba(255, 255, 255, 0.88);
+    stroke: none;
+    font-size: 44px;
+    font-weight: 700;
+  }
+  .aux-tick-text {
+    font-family: 'Segoe UI', 'Overpass', sans-serif;
+    text-anchor: middle;
+    dominant-baseline: central;
+    fill: #ffffff !important;
+    stroke: none;
+    font-size: 40px;
+    font-weight: 800;
+  }
+  .aux-sub-label {
+    font-family: 'Segoe UI', 'Overpass', sans-serif;
+    text-anchor: middle;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    fill: #ffffff !important;
+  }
+  .aux-pri-label {
+    font-family: 'Segoe UI', 'Overpass', sans-serif;
+    text-anchor: middle;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    fill: #ffffff !important;
+  }
+  .aux-compressor-text {
+    font-family: 'Segoe UI', 'Overpass', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-anchor: middle;
+  }
+  .aux-needle-rect {
+    filter: drop-shadow(0 0 5px rgba(229, 57, 53, 0.95));
+  }
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 660">
+  <defs>
+    <!-- Center disc slate gradient -->
+    <radialGradient id="auxCenterDiscGrad" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#252e3a" />
+      <stop offset="65%" stop-color="#1b222c" />
+      <stop offset="100%" stop-color="#121720" />
+    </radialGradient>
+    
+    <!-- Outer bezel gradient -->
+    <linearGradient id="auxBezelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d3745" />
+      <stop offset="100%" stop-color="#141920" />
+    </linearGradient>
+
+    <!-- Green bulb glow -->
+    <filter id="auxBulbGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer housing subtle rim -->
+  <circle cx="330" cy="330" r="294" fill="#0f141a" stroke="url(#auxBezelGrad)" stroke-width="4" opacity="0.92" />
+
+  <!-- 1. Dark Donut Gauge Track Background (270 deg sweep) -->
+  <circle cx="330" cy="330" r="254" fill="none" stroke="#222b37" stroke-width="70" stroke-dasharray="1197.0 2000" transform="rotate(135, 330, 330)" />
+
+  <!-- 3. Active Sweeping White Arc (at 8.3 Bar = 993.5 len) -->
+  <circle class="aux-active-arc" cx="330" cy="330" r="254" fill="none" stroke="#ffffff" stroke-width="65" stroke-dasharray="993.5 2000" transform="rotate(135, 330, 330)" />
+
+  <!-- 2. Red Low-Air Danger Sector (0 - 4 Bar / 40% of scale) - ON TOP of Active Sweeping Arc -->
+  <circle class="aux-danger-sector" cx="330" cy="330" r="254" fill="none" stroke="#b71c1c" stroke-width="65" stroke-dasharray="478.8 2000" transform="rotate(135, 330, 330)" opacity="0.75" />
+
+  <!-- 4. Radial Tick Dividers on each number (0, 2, 4, 6, 8, 10) -->
+  <g stroke="#141920" stroke-width="5" stroke-linecap="butt">
+    <line x1="330" y1="41" x2="330" y2="111" transform="rotate(-135, 330, 330)" />
+    <line x1="330" y1="41" x2="330" y2="111" transform="rotate(-81, 330, 330)" />
+    <line x1="330" y1="41" x2="330" y2="111" transform="rotate(-27, 330, 330)" />
+    <line x1="330" y1="41" x2="330" y2="111" transform="rotate(27, 330, 330)" />
+    <line x1="330" y1="41" x2="330" y2="111" transform="rotate(81, 330, 330)" />
+    <line x1="330" y1="41" x2="330" y2="111" transform="rotate(135, 330, 330)" />
+  </g>
+
+  <!-- 5. Red Needle Bar Indicator at Leading Edge (at 8.3 Bar / ~89.1 deg) -->
+  <g class="aux-needle-group" transform="rotate(89.1, 330, 330)">
+    <rect class="aux-needle-rect" x="323.5" y="40" width="13" height="71" fill="#e53935" rx="2" />
+  </g>
+
+  <!-- 6. Center Slate Disc Face -->
+  <circle cx="330" cy="330" r="217" fill="url(#auxCenterDiscGrad)" stroke="#2b3644" stroke-width="3" />
+
+  <!-- 7. Dial Scale Numbers in Bar (0, 2, 4, 6, 8, 10) -->
+  <g class="aux-tick-text">
+    <text x="206" y="454">0</text>
+    <text x="157" y="303">2</text>
+    <text x="251" y="174">4</text>
+    <text x="409" y="174">6</text>
+    <text x="503" y="303">8</text>
+    <text x="454" y="454">10</text>
+  </g>
+
+  <!-- 8. Compressor Charging Bulb (In the Middle) -->
+  <g class="aux-bulb-group">
+    <circle cx="330" cy="188" r="18" fill="#141920" stroke="#2d3642" stroke-width="2.5" />
+    <circle cx="330" cy="188" r="26" fill="#00e676" opacity="0.45" filter="url(#auxBulbGlow)" />
+    <circle cx="330" cy="188" r="14" fill="#00e676" />
+    <ellipse cx="325" cy="184" rx="5" ry="3" fill="#ffffff" opacity="0.75" transform="rotate(-25, 325, 184)" />
+    <text class="aux-compressor-text" x="330" y="224" fill="#00e676">COMPRESSOR</text>
+  </g>
+
+  <!-- 9. Center Main Digital Readout -->
+  <text class="aux-boost-val" x="330" y="336">8.3</text>
+  <text class="aux-boost-unit" x="330" y="398">Bar</text>
+  <text class="aux-sub-label" x="330" y="438">AUX AIR</text>
+
+  <!-- 10. Bottom Status -->
+  <text class="aux-pri-label" x="330" y="504">PRI: 8.3 Bar</text>
+</svg>
+</body>
+</html>

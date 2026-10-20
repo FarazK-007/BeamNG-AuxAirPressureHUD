@@ -1,0 +1,21 @@
+{
+  "domElement": "<aux-air-pressure-hud></aux-air-pressure-hud>",
+  "name": "Auxiliary Air Pressure HUD",
+  "types": [
+    "ui.apps.categories.vehicle_info"
+  ],
+  "description": "BeamNG-styled circular gauge displaying auxiliary tank air pressure and compressor charging status.",
+  "css": {
+    "bottom": "250px",
+    "right": "30px",
+    "width": "160px",
+    "height": "160px"
+  },
+  "author": "Antigravity",
+  "version": "1.2.0",
+  "directive": "auxAirPressureHud",
+  "category": "Dashboard",
+  "isAuxiliary": false,
+  "interactive": "yes",
+  "preserveAspectRatio": true
+}

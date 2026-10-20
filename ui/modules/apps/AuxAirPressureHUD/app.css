@@ -1,0 +1,164 @@
+/* ===================================================================
+   Auxiliary Air Pressure HUD - BeamNG.drive Theme
+   -------------------------------------------------------------------
+   FILE: app.css
+   Edit this file to tweak colors, fonts, sizes, opacity, and effects!
+   =================================================================== */
+
+/* 1. Main Container (Completely Transparent) */
+.aux-air-hud-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: none !important;
+  background-color: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  user-select: none;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  pointer-events: auto !important;
+}
+
+/* Hide HUD completely when vehicle has no air system */
+.aux-air-hud-container.ng-hide {
+  display: none !important;
+}
+
+.aux-air-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  user-select: none;
+  background: none !important;
+}
+
+/* 2. Instant Synchronous Movement (No Transition Lag) */
+.aux-needle-group,
+.aux-active-arc {
+  transition: none !important;
+}
+
+/* Active sweeping arc turns red during low air */
+.aux-active-arc.low-air {
+  stroke: #ff1744 !important;
+  filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.8));
+}
+
+/* Red Danger Sector (0 - 60 PSI / 40% of scale) */
+.aux-danger-sector {
+  stroke: #b71c1c;
+  opacity: 0.75;
+}
+
+/* 3. Center Digital Readout Typography (White & Bold) */
+.aux-boost-val {
+  font-family: 'Squada One', 'Overpass', 'Segoe UI Bold', Impact, sans-serif;
+  text-anchor: middle;
+  fill: #ffffff !important;
+  stroke: none;
+  font-size: 132px;
+  font-weight: 700;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.65));
+}
+
+.aux-boost-unit {
+  font-family: 'Squada One', 'Overpass', sans-serif;
+  text-anchor: middle;
+  fill: rgba(255, 255, 255, 0.78);
+  stroke: none;
+  font-size: 50px;
+}
+
+.aux-tick-text {
+  font-family: 'Squada One', 'Overpass', sans-serif;
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: #ffffff !important;
+  stroke: none;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.aux-sub-label {
+  font-family: 'Overpass', 'Segoe UI', sans-serif;
+  text-anchor: middle;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  fill: #ffffff !important;
+}
+
+.aux-pri-label {
+  font-family: 'Overpass', 'Segoe UI', sans-serif;
+  text-anchor: middle;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  fill: #ffffff !important;
+}
+
+/* 4. Compressor Status (Green when charging, dark when off) */
+.aux-compressor-text {
+  font-family: 'Overpass', 'Segoe UI', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-anchor: middle;
+  transition: fill 0.2s ease;
+}
+
+.aux-needle-rect {
+  filter: drop-shadow(0 0 3px rgba(215, 0, 0, 0.8));
+}
+
+/* 5. Low Air Alert Blinking */
+@keyframes auxLowAirBlink {
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.aux-low-air-blink {
+  animation: auxLowAirBlink 0.7s infinite ease-in-out;
+  font-weight: 800 !important;
+  fill: #ff1744 !important;
+}
+
+/* 6. Minimal Mode Specific Typography */
+.aux-minimal-sub-label {
+  font-family: 'Overpass', 'Segoe UI', sans-serif;
+  text-anchor: middle;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  fill: #ffffff !important;
+  opacity: 0.95;
+}
+
+.aux-minimal-low-air-big.aux-low-air-blink,
+.aux-minimal-low-air-big {
+  font-family: 'Overpass', 'Segoe UI Bold', Impact, sans-serif;
+  text-anchor: middle;
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  fill: #b71c1c !important;
+  filter: none !important;
+  text-shadow: none !important;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Auxiliary Air Pressure HUD",
+  "author": "Antigravity",
+  "version": "1.2.0",
+  "description": "OEM-styled interactive circular gauge displaying real-time auxiliary & primary air tank pressure, compressor charging state, and low-air warnings for commercial trucks and pneumatic vehicles in BeamNG.drive."
+}
